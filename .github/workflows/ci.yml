@@ -21,4 +21,4 @@ jobs:
           java-version: '21'
 
       - name: test spring boot server
-        run: cd server && ./gradlew test
+        run: ./gradlew test
