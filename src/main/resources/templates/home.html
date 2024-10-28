@@ -119,16 +119,6 @@
 <form th:action="list_page" method="get">
     <button type="submit" class="btn btn-primary btn-block">Add new list</button>
 </form>
-<ul>
-    <li>
-        ›Groceries
-    </li>
-    <li th:each="itemList, iterStat : ${itemLists}">
-        <a href="javascript:void(0)"
-                th:attr="data-popup='popup-' + ${iterStat.index}"
-                th:text="${itemList.name}"></a>
-    </li>
-</ul>
 
 <div class="backdrop" id="backdrop"></div>
 
