@@ -1,4 +1,4 @@
-![telegram-cloud-photo-size-2-5257973842679292786-y](https://github.com/user-attachments/assets/4772beb2-fcc6-4615-8e11-7f099642b831)# lists-project
+# lists-project
 
 ## Description
 Project for creating lists
