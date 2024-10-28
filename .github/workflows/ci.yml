@@ -1,0 +1,24 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: set up java 21 version
+        uses: actions/setup-java@v1
+        with:
+          java-version: '21'
+
+      - name: test spring boot server
+        run: cd server && ./gradlew test
