@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Login</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f7f7f7;
+    }
+    .login-form {
+        width: 300px;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .register-button{
+        margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+<div class="login-form">
+  <h4 class="text-center">Login</h4>
+  <form th:action="@{/login}" method="post" th:object="${user}">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" th:field="*{username}" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" th:field="*{password}" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Login</button>
+  </form>
+  <form th:action="@{/registration}" method="get">
+    <button type="submit" class="btn btn-primary btn-block register-button">New user?</button>
+  </form>
+</div>
+</body>
+</html>
+
