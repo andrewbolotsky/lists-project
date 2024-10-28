@@ -41,4 +41,17 @@ public class UserService implements UserDetailsService {
     userDto.setPassword(userOptional.get().getPassword());
     return userDto;
   }
+
+  public User login(String username, String password) {
+    Optional<User> userOptional = userRepository.findByUsername(username);
+    if (userOptional.isEmpty()) {
+      throw new ResponseStatusException(HttpStatusCode.valueOf(403),"User with username " + username + " does not exist");
+    }
+    User user = userOptional.get();
+    if (!user.getPassword().equals(password)) {
+      throw new ResponseStatusException(HttpStatusCode.valueOf(403),"Password is not correct");
+
+    }
+    return user;
+  }
 }
