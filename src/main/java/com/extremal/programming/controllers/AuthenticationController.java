@@ -41,21 +41,20 @@ public class AuthenticationController {
         if (false) {
             return "redirect:/login";
         }
-
         List<ListEntity> lists = listsService.getListEntitiesForConcreteUser(user.getUsername());
         model.addAttribute("items", lists);
         return "redirect:/home";
-
-
     }
 
     @GetMapping("/register")
-    public String showRegistrationForm() {
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("userForm", new UserDto());
         return "register";
     }
 
     @PostMapping("/register")
-    public String processRegistration() {
+    public String processRegistration(@ModelAttribute("user") UserDto user, Model model) {
+        userService.createNewUser(user.getUsername(), user.getPassword());
         return "redirect:/home";
     }
 }
